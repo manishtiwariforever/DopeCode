@@ -1,0 +1,128 @@
+<div class="container">
+    <div [hidden]="submitted">
+      <h1>Contact Us</h1>
+      <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
+
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" class="form-control" required [(ngModel)]="data.name" name="name" #name="ngModel">
+          <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+            Name is Required is required
+          </div>
+        </div>
+        <br>
+
+        <div class="form-group">
+            <label for="contactPreference">I would like to be contacted by</label><br>
+
+            <input type="radio" name="contactPreference" [(ngModel)]="data.contactPreference" id="mobile" value="mobile" #contactPreference="ngModel"/>
+            <label for="always">Mobile</label>
+
+            <input type="radio" name="contactPreference" [(ngModel)]="data.contactPreference" id="email" value="email" #contactPreference="ngModel"/>
+            <label for="never">Email</label>
+
+            <input type="radio" name="contactPreference" [(ngModel)]="data.contactPreference" id="any" value="any" #contactPreference="ngModel"/>
+            <label for="change">Anything is Fine</label>
+
+            <div [hidden]="contactPreference.valid || contactPreference.pristine" class="alert alert-danger">
+                Name is Required is required
+              </div>
+        </div>
+        <br>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" required [(ngModel)]="data.email" name="email" #email="ngModel">
+          <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+            Email is required
+          </div>
+        </div>
+        <br>
+
+        <div class="form-group">
+          <label for="mobile">Mobile</label>
+          <input type="number" class="form-control" required [(ngModel)]="data.mobile" name="mobile" pattern="[1-9]{1}[0-9]{9}" #mobile="ngModel">
+          <div [hidden]="mobile.valid || mobile.pristine" class="alert alert-danger">
+            Mobile Number is required
+          </div>
+        </div>
+        <br>
+
+
+        <div class="form-group">
+            <label for="projectType">Project Type</label>
+            <select class="form-control" required [(ngModel)]="data.projectType" name="projectType" #projectType="ngModel">
+                <option selected>Click here select options</option>
+                <option value="Basic">Basic</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Advanced">Advanced</option>
+                <option value="I Don't Know, Contact Me.">I Don't Know, Contact Me.</option>
+              </select>
+        </div>
+        <br>
+
+        <div class="form-group">
+            <label for="desc">Short Description about the Project</label>
+            <input type="text" class="form-control" required [(ngModel)]="data.desc" name="desc" #desc="ngModel">
+            <div [hidden]="desc.valid || desc.pristine" class="alert alert-danger">
+                Description is Required.
+            </div>
+        </div>
+        <br>
+
+        <div class="form-group">
+            <label for="expTime">When do you expect the project to be delivered</label>
+            <select class="form-control" required [(ngModel)]="data.expTime" name="expTime" #expTime="ngModel">
+                <option selected>Click here to select options</option>
+                <option value="1 Month to 3 Month">1 Month to 3 Month</option>
+                <option value="3 Month to 6 Month">3 Month to 6 Month</option>
+                <option value="6 Month to 1 Year">6 Month to 1 Year</option>
+              </select>
+        </div>
+        <br/>
+
+        <button type="submit" class="btn btn-outline-primary" [disabled]="!contactForm.form.valid">Submit</button>
+      </form>
+    </div>
+    <!-- <div [hidden]="!submitted">
+      <h2>You submitted the following:</h2>
+      <div class="row">
+        <div class="col-xs-3">Your Name</div>
+        <div class="col-xs-9  pull-left">{{ data.name }}</div><br>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">Contact Preference</div>
+        <div class="col-xs-9  pull-left">{{ data.contactPreference }}</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">Your Email</div>
+        <div class="col-xs-9 pull-left">{{ data.email }}</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">Your Mobile Number</div>
+        <div class="col-xs-9 pull-left">{{ data.mobile }}</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">Project Type Selected</div>
+        <div class="col-xs-9 pull-left">{{ data.projectType }}</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">Project Description</div>
+        <div class="col-xs-9 pull-left">{{ data.desc }}</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">Expected Delivery</div>
+        <div class="col-xs-9 pull-left">{{ data.expTime }}</div>
+      </div>
+      <br>
+      <button class="btn btn-outline-primary" (click)="submitted=false">Edit</button>
+    </div> -->
+  </div>
+
+
+
+
+
+
+
+
